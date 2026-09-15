@@ -1,0 +1,12 @@
+{
+  "name": "und-ricove-skills",
+  "owner": { "name": "und-ricove-skills" },
+  "description": "Скиллы одной домашней лаборатории для Claude Code: Windows по-русски, методы проверки, статьи, Беларусь. С любовью, из лаборатории.",
+  "version": "1.0.0",
+  "plugins": [
+    { "name": "windows-lab", "source": "./plugins/windows-lab", "description": "Claude Code на Windows по-русски: UTF-8, права администратора, журналы, железо, GPU, версии Claude, дисплей", "category": "productivity" },
+    { "name": "methods", "source": "./plugins/methods", "description": "Методы: проверка чисел, сортировка повреждённых данных, чужой код, гигиена markdown-хранилища", "category": "productivity" },
+    { "name": "writing", "source": "./plugins/writing", "description": "Статьи и страницы-артефакты с русской типографикой", "category": "writing" },
+    { "name": "belarus", "source": "./plugins/belarus", "description": "Беларусь: железо и сборщики через API Onliner, выбор VPS по задержке", "category": "productivity" }
+  ]
+}

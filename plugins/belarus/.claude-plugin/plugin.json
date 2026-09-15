@@ -1,0 +1,8 @@
+{
+  "name": "belarus",
+  "description": "Беларусь: подбор железа и сборщиков через открытый API Onliner, выбор VPS по реальной задержке",
+  "version": "1.0.0",
+  "author": { "name": "und-ricove-skills" },
+  "license": "MIT",
+  "keywords": ["russian", "windows", "claude-code", "skills"]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "methods",
+  "description": "Методы работы: проверка чисел в отчётах, сортировка повреждённых данных, правки чужого кода, гигиена markdown-хранилища",
+  "version": "1.0.0",
+  "author": { "name": "und-ricove-skills" },
+  "license": "MIT",
+  "keywords": ["russian", "windows", "claude-code", "skills"]
+}

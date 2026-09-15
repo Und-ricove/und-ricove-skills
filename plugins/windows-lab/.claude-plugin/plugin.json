@@ -1,0 +1,8 @@
+{
+  "name": "windows-lab",
+  "description": "Claude Code на Windows по-русски: UTF-8 во всех трактах, права администратора из обычной сессии, журналы, здоровье железа и GPU, версии Claude, диагностика дисплея",
+  "version": "1.0.0",
+  "author": { "name": "und-ricove-skills" },
+  "license": "MIT",
+  "keywords": ["russian", "windows", "claude-code", "skills"]
+}
