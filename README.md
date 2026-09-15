@@ -28,7 +28,7 @@ Windows 11 с русским языком, проверки чисел в отч
 /plugin install belarus@und-ricove-skills
 ```
 
-Без GitHub: распакуй архив и укажи путь к папке:
+Без доступа к GitHub из Claude Code: скачай репозиторий (Code → Download ZIP), распакуй и укажи путь к папке:
 
 ```
 /plugin marketplace add C:\путь\к\und-ricove-skills
