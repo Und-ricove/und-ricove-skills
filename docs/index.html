@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>und-ricove-skills</title>
+<meta name="description" content="Скиллы одной домашней лаборатории для Claude Code: Windows по-русски, методы проверки, статьи, Беларусь.">
+<style>
+:root{
+  --ground:#070907; --panel:#0d120e; --panel2:#111812; --rule:#1f3a25;
+  --ink:#d9dcd8; --muted:#8a978c; --green:#8ef0a1; --green2:#5c8a64; --bright:#b8ffc6;
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"DejaVu Sans Mono",monospace;
+  --text:"Verdana Pro",Verdana,"DejaVu Sans",Geneva,sans-serif;
+}
+*{box-sizing:border-box}
+html{background:var(--ground)}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.7;font-variant-ligatures:none}
+pre,code,kbd{font-family:var(--mono);font-variant-ligatures:none;font-feature-settings:"liga" 0,"calt" 0}
+.wrap{max-width:900px;margin:0 auto;padding:28px 20px 60px}
+.term{background:var(--panel);border:1px solid var(--rule);border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px #000, 0 20px 60px rgba(0,0,0,.6)}
+.bar{background:var(--panel2);border-bottom:1px solid var(--rule);height:30px;display:flex;align-items:center;gap:8px;padding:0 14px;font-family:var(--mono);font-size:13px;color:var(--green2)}
+.bar i{width:10px;height:10px;border-radius:50%;background:#2e4a34;display:inline-block}
+.bar span{margin-left:auto}
+.screen{padding:26px 28px 30px;position:relative}
+.screen::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 2px,transparent 2px 4px)}
+.line{font-family:var(--mono);color:var(--green);font-size:17px;margin:0 0 6px;white-space:pre-wrap}
+.line b{color:var(--green2);font-weight:400}
+h1{font-family:var(--mono);color:var(--bright);font-size:32px;margin:14px 0 6px;letter-spacing:-.5px;font-weight:700}
+.sub{font-family:var(--mono);color:#7fd48e;font-size:15px;margin:0 0 18px}
+.cursor{display:inline-block;width:.6em;height:1.05em;background:var(--bright);vertical-align:-2px;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion: reduce){.cursor{animation:none}}
+h2{font-family:var(--mono);color:var(--green);font-size:20px;font-weight:700;margin:40px 0 12px;padding-top:14px;border-top:1px solid var(--rule)}
+h2::before{content:"## ";color:var(--green2)}
+p{margin:0 0 14px;max-width:70ch}
+a{color:var(--bright);text-decoration:underline;text-decoration-color:var(--green2);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+pre.cmd{background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:16px 18px;overflow-x:auto;color:var(--green);font-size:16px;line-height:1.6;margin:10px 0 18px}
+pre.cmd b{color:var(--green2);font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:14px 0 6px}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:8px;padding:16px 18px}
+.card h3{font-family:var(--mono);color:var(--bright);font-size:17px;margin:0 0 8px;font-weight:700}
+.card ul{margin:0;padding-left:0;list-style:none}
+.card li{font-family:var(--mono);font-size:15px;color:var(--ink);margin:0 0 6px;padding-left:16px;position:relative}
+.card li::before{content:"›";position:absolute;left:0;color:var(--green2)}
+.card li span{color:var(--muted);font-family:var(--text);font-size:15px}
+.note{color:var(--muted);font-size:15px;max-width:70ch}
+footer{margin-top:50px;padding-top:14px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:13px;color:var(--green2);line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="term" role="banner">
+  <div class="bar"><i></i><i></i><i></i><span>und-ricove-skills — tty1</span></div>
+  <div class="screen">
+    <p class="line"><b>$ </b>cat MANIFEST</p>
+    <h1>und-ricove-skills</h1>
+    <p class="sub">четыре плагина · четырнадцать скиллов · Claude Code по-русски</p>
+    <p class="line"><b>$ </b>/plugin marketplace add Und-ricove/und-ricove-skills</p>
+    <p class="line"><b>$ </b><span class="cursor" aria-hidden="true"></span></p>
+  </div>
+</div>
+
+<p style="margin-top:26px">Скиллы одной домашней лаборатории для <a href="https://code.claude.com/docs">Claude Code</a>.
+Собраны летом 2026 на живой работе: Windows 11 с русским языком, проверки чисел в отчётах,
+статьи для чтения человеком, железо и хостинг для Беларуси. Каждый скилл писался после
+оплаченной ошибки, поэтому в них много ловушек и мало теории.</p>
+<p class="note">С любовью, из лаборатории. Код и тексты: <a href="https://github.com/Und-ricove/und-ricove-skills">github.com/Und-ricove/und-ricove-skills</a>, лицензия MIT.</p>
+
+<h2>Установка</h2>
+<p>В Claude Code, по одному плагину за команду:</p>
+<pre class="cmd"><b>&gt; </b>/plugin marketplace add Und-ricove/und-ricove-skills
+<b>&gt; </b>/plugin install windows-lab@und-ricove-skills
+<b>&gt; </b>/plugin install methods@und-ricove-skills
+<b>&gt; </b>/plugin install writing@und-ricove-skills
+<b>&gt; </b>/plugin install belarus@und-ricove-skills</pre>
+<p>Весь пак одной строкой из PowerShell:</p>
+<pre class="cmd">claude plugin marketplace add Und-ricove/und-ricove-skills; foreach ($p in 'windows-lab','methods','writing','belarus') { claude plugin install "$p@und-ricove-skills" }</pre>
+<p class="note">Скиллы вызываются как <code>/windows-lab:encoding-check</code> или <code>/methods:number-forensics</code>, а также сами по контексту задачи.</p>
+
+<h2>Что внутри</h2>
+<div class="grid">
+  <div class="card">
+    <h3>windows-lab</h3>
+    <ul>
+      <li>encoding-check <span>UTF-8 во всех трактах</span></li>
+      <li>elevated <span>права администратора из обычной сессии</span></li>
+      <li>logs <span>журналы Windows по-русски</span></li>
+      <li>hw-health <span>WHEA, BSOD, TDR, Kernel-Power</span></li>
+      <li>gpu <span>сводка NVIDIA</span></li>
+      <li>update-check <span>три разных Claude Code на машине</span></li>
+      <li>display-diag <span>мыло, шрифты, сглаживание</span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>methods</h3>
+    <ul>
+      <li>number-forensics <span>проверка чисел в отчётах</span></li>
+      <li>data-triage <span>битые данные, доноры, карантин</span></li>
+      <li>foreign-code <span>форк, патч, сборка чужого</span></li>
+      <li>vault-hygiene <span>гигиена markdown-хранилища</span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>writing</h3>
+    <ul>
+      <li>article-craft <span>статьи и страницы, русская типографика</span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>belarus</h3>
+    <ul>
+      <li>pc-build-belarus <span>железо и сборщики через API Onliner</span></li>
+      <li>vps-probe <span>VPS по реальной задержке</span></li>
+    </ul>
+  </div>
+</div>
+
+<h2>Как читать скиллы</h2>
+<p>Скиллы написаны на русском и рассчитаны на модель, а не на человека: короткие правила,
+пороги с числами, ловушки с датой, когда они были оплачены. Даты внутри это история правок,
+не срок годности. Пути вида <code>&lt;папка скилла&gt;</code> подставь под своё расположение.</p>
+
+<footer>
+Страница собрана 15.09.2026 · тексты и скиллы: Und-ricove · сборка и чистка: Claude Fable 5.1 в Claude Code · шрифты без лигатур · лицензия MIT
+</footer>
+</div>
+</body>
+</html>
