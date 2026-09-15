@@ -35,7 +35,7 @@ Get-WinEvent -FilterHashtable @{LogName='System';StartTime=$since} -MaxEvents 1
 
 ## 2. Датчики
 
-`Invoke-RestMethod http://localhost:8085/data.json -TimeoutSec 3` (LibreHardwareMonitor). Пройди дерево Children рекурсивно: температуры CPU (пакет и максимум ядер), GPU (core/hotspot если есть), NVMe — текущие и Max. Порт молчит → LHM не запущен: скажи об этом и продолжи; температуру GPU возьми из `nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader`. За полной живой картиной карты — скилл /gpu, здесь её не дублируй.
+`Invoke-RestMethod http://localhost:8085/data.json -TimeoutSec 3` (LibreHardwareMonitor — сторонняя программа, у пользователя её может не быть; веб-сервер включается в её настройках, порт 8085 по умолчанию). Пройди дерево Children рекурсивно: температуры CPU (пакет и максимум ядер), GPU (core/hotspot если есть), NVMe — текущие и Max. Порт молчит → LHM не запущен: скажи об этом и продолжи; температуру GPU возьми из `nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader`. За полной живой картиной карты — скилл /gpu, здесь её не дублируй.
 
 ## 3. Вердикт по-русски
 
@@ -45,7 +45,7 @@ Get-WinEvent -FilterHashtable @{LogName='System';StartTime=$since} -MaxEvents 1
 - BugCheck 1001 → синий экран, назови код: 0x124 WHEA_UNCORRECTABLE_ERROR — почти всегда CPU/кэш; 0x116 VIDEO_TDR_FAILURE — GPU
 - TDR/nvlddmkm >0 → GPU-разгон: снять +МГц с ядра или VRAM
 - Kernel-Power 41 → жёсткий сбой; если рядом BugCheck — это BSOD с перезагрузкой, если без него — провал питания или зависание намертво. Разбираться ДО продолжения разгона
-- Краши LegionSpace ntdll 0xc0000374 — известный баг LS, НЕ маркер разгона
+- Пример известного шума: краши LegionSpace (утилита Lenovo) ntdll 0xc0000374 — баг самой утилиты, НЕ маркер разгона. У пользователя список такого шума свой
 
 ## Разделение труда с соседями
 
