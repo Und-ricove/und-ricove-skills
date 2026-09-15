@@ -13,7 +13,7 @@
 }
 :root{
   --ground:#000; --panel:#070707; --panel2:#101010; --rule:#2a2a2a;
-  --ink:#d4d4d4; --muted:#8c8c8c; --hi:#f2f2f2; --dim:#5e5e5e;
+  --ink:#d4d4d4; --muted:#8c8c8c; --hi:#f2f2f2; --dim:#5e5e5e; --violet:#B48CFF; --violet-glow:#7F00FF;
   --mono:"Iosevka Custom","Cascadia Mono",Consolas,"DejaVu Sans Mono",monospace;
 }
 *{box-sizing:border-box}
@@ -25,6 +25,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:2;bac
 body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at 50% 40%,transparent 55%,rgba(0,0,0,.55) 100%)}
 .wrap{position:relative;z-index:3;max-width:900px;margin:0 auto;padding:28px 20px 60px}
 .glow{text-shadow:0 0 1px #fff,0 0 8px rgba(255,255,255,.35)}
+.v{color:var(--violet)}
+.glow .v,.v.glow{text-shadow:0 0 1px var(--violet),0 0 9px rgba(127,0,255,.55)}
 .term{background:var(--panel);border:1px solid var(--rule);border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px #000,0 0 40px rgba(255,255,255,.04)}
 .bar{background:var(--panel2);border-bottom:1px solid var(--rule);height:30px;display:flex;align-items:center;gap:8px;padding:0 14px;font-size:13px;color:var(--dim)}
 .bar i{width:10px;height:10px;border-radius:50%;background:#3a3a3a;display:inline-block}
@@ -60,12 +62,12 @@ footer{margin-top:50px;padding-top:14px;border-top:1px solid var(--rule);font-si
 <div class="wrap">
 
 <div class="term" role="banner">
-  <div class="bar"><i></i><i></i><i></i><span>und-ricove-skills — tty1</span></div>
+  <div class="bar"><i></i><i></i><i></i><span><span class="v">und-ricove</span>-skills — tty1</span></div>
   <div class="screen">
     <p class="line"><b>$ </b>cat MANIFEST</p>
-    <h1 class="glow">und-ricove-skills</h1>
+    <h1 class="glow"><span class="v">und-ricove</span>-skills</h1>
     <p class="sub">четыре плагина · четырнадцать скиллов · Claude Code по-русски</p>
-    <p class="line glow"><b>$ </b>/plugin marketplace add Und-ricove/und-ricove-skills</p>
+    <p class="line glow"><b>$ </b>/plugin marketplace add <span class="v">Und-ricove</span>/<span class="v">und-ricove</span>-skills</p>
     <p class="line"><b>$ </b><span class="cursor" aria-hidden="true"></span></p>
   </div>
 </div>
@@ -74,15 +76,15 @@ footer{margin-top:50px;padding-top:14px;border-top:1px solid var(--rule);font-si
 Собраны летом 2026 на живой работе: Windows 11 с русским языком, проверки чисел в отчётах,
 статьи для чтения человеком, железо и хостинг для Беларуси. Каждый скилл писался после
 оплаченной ошибки, поэтому в них много ловушек и мало теории.</p>
-<p class="note">С любовью, из лаборатории. Код и тексты: <a href="https://github.com/Und-ricove/und-ricove-skills">github.com/Und-ricove/und-ricove-skills</a>, лицензия MIT.</p>
+<p class="note"><span class="v">С любовью, из лаборатории.</span> Код и тексты: <a href="https://github.com/Und-ricove/und-ricove-skills">github.com/<span class="v">Und-ricove</span>/<span class="v">und-ricove</span>-skills</a>, лицензия MIT.</p>
 
 <h2>Установка</h2>
 <p>В Claude Code, по одному плагину за команду:</p>
-<pre class="cmd"><b>&gt; </b>/plugin marketplace add Und-ricove/und-ricove-skills
-<b>&gt; </b>/plugin install windows-lab@und-ricove-skills
-<b>&gt; </b>/plugin install methods@und-ricove-skills
-<b>&gt; </b>/plugin install writing@und-ricove-skills
-<b>&gt; </b>/plugin install belarus@und-ricove-skills</pre>
+<pre class="cmd"><b>&gt; </b>/plugin marketplace add <span class="v">Und-ricove</span>/<span class="v">und-ricove</span>-skills
+<b>&gt; </b>/plugin install windows-lab@<span class="v">und-ricove</span>-skills
+<b>&gt; </b>/plugin install methods@<span class="v">und-ricove</span>-skills
+<b>&gt; </b>/plugin install writing@<span class="v">und-ricove</span>-skills
+<b>&gt; </b>/plugin install belarus@<span class="v">und-ricove</span>-skills</pre>
 <p>Весь пак одной строкой из PowerShell:</p>
 <pre class="cmd">claude plugin marketplace add Und-ricove/und-ricove-skills; foreach ($p in 'windows-lab','methods','writing','belarus') { claude plugin install "$p@und-ricove-skills" }</pre>
 <p class="note">Скиллы вызываются как <code>/windows-lab:encoding-check</code> или <code>/methods:number-forensics</code>, а также сами по контексту задачи.</p>
@@ -131,7 +133,7 @@ footer{margin-top:50px;padding-top:14px;border-top:1px solid var(--rule);font-si
 не срок годности. Пути вида <code>&lt;папка скилла&gt;</code> подставь под своё расположение.</p>
 
 <footer>
-Страница собрана 15.09.2026 · тексты и скиллы: Und-ricove · сборка и чистка: Claude Fable 5.1 в Claude Code · шрифт Iosevka Custom, SIL OFL 1.1, субсет без лигатур · лицензия MIT
+Страница собрана 15.09.2026 · тексты и скиллы: <span class="v">Und-ricove</span> · сборка и чистка: Claude Fable 5.1 в Claude Code · шрифт Iosevka Custom, SIL OFL 1.1, субсет без лигатур · лицензия MIT
 </footer>
 </div>
 </body>
