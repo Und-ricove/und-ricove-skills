@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>und-ricove-skills</title>
-<meta name="description" content="Готовые скиллы для Claude Code на русском языке: Windows без сломанных кодировок, проверка чисел и данных, статьи, железо и VPS для Беларуси.">
+<meta name="description" content="Готовые скиллы для Claude Code на русском языке: Windows без сломанных кодировок, проверка чисел и данных, статьи.">
 <style>
 @font-face{
   font-family:"Iosevka Custom";
@@ -76,15 +76,15 @@ footer{margin-top:50px;padding-top:14px;border-top:1px solid var(--rule);font-si
   <div class="screen">
     <p class="line"><b>$ </b>cat MANIFEST</p>
     <h1 class="glow"><span class="v">und-ricove</span>-skills</h1>
-    <p class="sub">четыре плагина · четырнадцать скиллов · Claude Code по-русски</p>
+    <p class="sub">три плагина · двенадцать скиллов · Claude Code по-русски</p>
     <p class="line glow"><b>$ </b>/plugin marketplace add <span class="v">Und-ricove</span>/<span class="v">und-ricove</span>-skills</p>
     <p class="line"><b>$ </b><span class="cursor" aria-hidden="true"></span></p>
   </div>
 </div>
 
 <p style="margin-top:26px">Готовые инструкции для <a href="https://code.claude.com/docs">Claude Code</a> на русском языке:
-четыре плагина, четырнадцать скиллов. Главная тема — работа на Windows 11 с русским языком.
-Кроме неё: проверка чисел и данных, оформление статей и подбор железа для Беларуси.</p>
+три плагина, двенадцать скиллов. Главная тема — работа на Windows 11 с русским языком.
+Кроме неё: проверка чисел и данных и оформление статей.</p>
 <p class="note"><span class="v">С любовью, und-ricove.</span> Код и тексты: <a href="https://github.com/Und-ricove/und-ricove-skills">github.com/<span class="v">Und-ricove</span>/<span class="v">und-ricove</span>-skills</a>, лицензия MIT.</p>
 
 <h2>Что такое скилл и зачем он вам</h2>
@@ -112,8 +112,6 @@ marketplace) — список плагинов, откуда Claude Code их б
   отделяет битое от целого и не выбрасывает рабочие файлы по ложному признаку.</li>
   <li><b>Статьи, которые удобно читать.</b> Готовые решения по шрифтам, цветам и структуре страницы,
   чтобы не проектировать оформление заново каждый раз.</li>
-  <li><b>Железо и серверы для Беларуси.</b> Цены из каталога Onliner, проверка совместимости до отправки
-  списка сборщику, выбор VPS по замеренной задержке, а не по рекламе.</li>
 </ul>
 <p class="note">Честно о границах. Скиллы собраны на одном компьютере за лето 2026 и хранят его опыт:
 версии, пути и пороги внутри — примеры, а не требования. Часть примеров про машину автора (ноутбук
@@ -124,7 +122,6 @@ marketplace) — список плагинов, откуда Claude Code их б
 <ul class="gain">
   <li>Вы работаете в Claude Code на Windows и пишете по-русски.</li>
   <li>Вы хотите, чтобы Claude проверял себя: числа, целостность данных, чужой код.</li>
-  <li>Вы в Беларуси и собираете ПК или выбираете сервер.</li>
 </ul>
 <p class="note">Опыт с плагинами не нужен: установка ниже расписана по шагам.</p>
 
@@ -135,11 +132,10 @@ marketplace) — список плагинов, откуда Claude Code их б
   <li>Откройте чат Claude Code.</li>
   <li>Подключите каталог. Введите в чат одну команду:
 <pre class="cmd"><b>&gt; </b>/plugin marketplace add <span class="v">Und-ricove</span>/<span class="v">und-ricove</span>-skills</pre></li>
-  <li>Установите плагины. Одна команда ставит один плагин, поэтому их четыре. Ставьте только нужные:
+  <li>Установите плагины. Одна команда ставит один плагин, поэтому их три. Ставьте только нужные:
 <pre class="cmd"><b>&gt; </b>/plugin install windows-lab@<span class="v">und-ricove</span>-skills
 <b>&gt; </b>/plugin install methods@<span class="v">und-ricove</span>-skills
-<b>&gt; </b>/plugin install writing@<span class="v">und-ricove</span>-skills
-<b>&gt; </b>/plugin install belarus@<span class="v">und-ricove</span>-skills</pre></li>
+<b>&gt; </b>/plugin install writing@<span class="v">und-ricove</span>-skills</pre></li>
   <li>Проверьте: наберите в чате <code>/windows-lab</code> и появится список скиллов плагина.
   Или напишите словами «проверь кодировки»: Claude найдёт скилл сам. Если скиллы не появились,
   перезапустите Claude Code.</li>
@@ -172,7 +168,7 @@ Claude Code без каталога и без git:</p>
 
 <h3>Если вы хотите поставить всё сразу</h3>
 <p>Выполните одну строку в PowerShell (в обычном терминале, не в чате Claude):</p>
-<pre class="cmd">claude plugin marketplace add Und-ricove/und-ricove-skills; foreach ($p in 'windows-lab','methods','writing','belarus') { claude plugin install "$p@und-ricove-skills" }</pre>
+<pre class="cmd">claude plugin marketplace add Und-ricove/und-ricove-skills; foreach ($p in 'windows-lab','methods','writing') { claude plugin install "$p@und-ricove-skills" }</pre>
 
 <h3>Если команда /plugin не найдена</h3>
 <p>Ваш Claude Code старше, чем нужно. В терминале выполните <code>claude update</code> и перезапустите
@@ -226,18 +222,11 @@ claude plugin update windows-lab@und-ricove-skills</pre>
       <li>article-craft <span>статьи и страницы, которые удобно читать</span></li>
     </ul>
   </div>
-  <div class="card">
-    <h3>belarus</h3>
-    <ul>
-      <li>pc-build-belarus <span>железо и сборщики по ценам Onliner</span></li>
-      <li>vps-probe <span>VPS по замеренной задержке</span></li>
-    </ul>
-  </div>
 </div>
 <p class="note" style="margin-top:14px">У number-forensics и vault-hygiene правила лежат в <code>SKILL.md</code>, а случаи и обоснования
 отдельно в <code>cases.md</code>. elevated нужен при включённом UAC. display-diag и раздел gpu про простой собраны
 на OLED-ноутбуке автора и помечены как пример. article-craft — стайл-гайд автора, встроенные правила артефактов
-Claude Code при конфликте главнее. Цены и замеры в belarus актуальны на лето и сентябрь 2026, метод не устаревает.</p>
+Claude Code при конфликте главнее.</p>
 
 <h2>Что делают скрипты в паке</h2>
 <p>В паке четыре скрипта PowerShell. Все открытые, ничего не устанавливают, и только один из них

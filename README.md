@@ -1,6 +1,6 @@
 # und-ricove-skills
 
-<p align="center"><img src="assets/banner.svg" width="900" alt="und-ricove-skills: четыре плагина, четырнадцать скиллов"></p>
+<p align="center"><img src="assets/banner.svg" width="900" alt="und-ricove-skills: три плагина, двенадцать скиллов"></p>
 
 <p align="center">
 <img alt="лицензия MIT" src="https://img.shields.io/badge/лицензия-MIT-1a1a1a?style=flat-square&labelColor=000000">
@@ -10,9 +10,9 @@
 <img alt="с любовью, und-ricove" src="https://img.shields.io/badge/%D1%81_%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C%D1%8E-und--ricove-7F00FF?style=flat-square&labelColor=000000">
 </p>
 
-Готовые инструкции для Claude Code на русском языке: четыре плагина, четырнадцать скиллов.
-Главная тема — работа на Windows 11 с русским языком. Кроме неё: проверка чисел и данных,
-оформление статей и подбор железа для Беларуси.
+Готовые инструкции для Claude Code на русском языке: три плагина, двенадцать скиллов.
+Главная тема — работа на Windows 11 с русским языком. Кроме неё: проверка чисел и данных
+и оформление статей.
 
 Та же страница на сайте: https://und-ricove.github.io/und-ricove-skills/
 
@@ -44,8 +44,6 @@ marketplace) — список плагинов, откуда Claude Code их б
   скилл отделяет битое от целого и не выбрасывает рабочие файлы по ложному признаку.
 - **Статьи, которые удобно читать.** Готовые решения по шрифтам, цветам и структуре
   страницы, чтобы не проектировать оформление заново каждый раз.
-- **Железо и серверы для Беларуси.** Цены из каталога Onliner, проверка совместимости
-  до отправки списка сборщику, выбор VPS по замеренной задержке, а не по рекламе.
 
 Честно о границах. Скиллы собраны на одном компьютере за лето 2026 и хранят его опыт:
 версии, пути и пороги внутри — примеры, а не требования. Часть примеров про машину автора
@@ -57,7 +55,6 @@ marketplace) — список плагинов, откуда Claude Code их б
 
 - Вы работаете в Claude Code на Windows и пишете по-русски.
 - Вы хотите, чтобы Claude проверял себя: числа, целостность данных, чужой код.
-- Вы в Беларуси и собираете ПК или выбираете сервер.
 
 Опыт с плагинами не нужен: установка ниже расписана по шагам.
 
@@ -73,14 +70,13 @@ marketplace) — список плагинов, откуда Claude Code их б
    /plugin marketplace add Und-ricove/und-ricove-skills
    ```
 
-3. Установите плагины. Одна команда ставит один плагин, поэтому их четыре.
+3. Установите плагины. Одна команда ставит один плагин, поэтому их три.
    Ставьте только нужные:
 
    ```
    /plugin install windows-lab@und-ricove-skills
    /plugin install methods@und-ricove-skills
    /plugin install writing@und-ricove-skills
-   /plugin install belarus@und-ricove-skills
    ```
 
 4. Проверьте: наберите в чате `/windows-lab` и появится список скиллов плагина.
@@ -123,7 +119,7 @@ marketplace) — список плагинов, откуда Claude Code их б
 Выполните одну строку в PowerShell (в обычном терминале, не в чате Claude):
 
 ```powershell
-claude plugin marketplace add Und-ricove/und-ricove-skills; foreach ($p in 'windows-lab','methods','writing','belarus') { claude plugin install "$p@und-ricove-skills" }
+claude plugin marketplace add Und-ricove/und-ricove-skills; foreach ($p in 'windows-lab','methods','writing') { claude plugin install "$p@und-ricove-skills" }
 ```
 
 ### Если команда /plugin не найдена
@@ -162,8 +158,7 @@ claude plugin update windows-lab@und-ricove-skills
 und-ricove-skills/
 ├── windows-lab/   encoding-check  elevated  logs  hw-health  gpu  update-check  display-diag
 ├── methods/       number-forensics  data-triage  foreign-code  vault-hygiene
-├── writing/       article-craft
-└── belarus/       pc-build-belarus  vps-probe
+└── writing/       article-craft
 ```
 
 ## Что внутри
@@ -194,16 +189,6 @@ und-ricove-skills/
 | Скилл | Что даёт |
 |---|---|
 | `article-craft` | Стайл-гайд автора для статей и страниц: шрифты, цвета (`palette.md`), структура подачи, чистый русский язык, печать HTML в PDF. Встроенные правила оформления артефактов Claude Code при конфликте главнее |
-
-### belarus: железо и хостинг
-
-| Скилл | Что даёт |
-|---|---|
-| `pc-build-belarus` | Подбирает комплектующие и сборщиков ПК в Беларуси по ценам каталога Onliner и Kufar, считает по курсу НБРБ, проверяет совместимость до отправки списка сборщику |
-| `vps-probe` | Помогает выбрать VPS по реальной задержке до сервера, а не по обещаниям хостера. Учитывает помехи от VPN |
-
-Цены, адреса и замеры в этих двух скиллах актуальны на лето и сентябрь 2026. Метод
-(API каталога, курс, проверка совместимости, порядок замера) не устаревает.
 
 ## Что делают скрипты в паке
 
@@ -291,15 +276,13 @@ chat. What you get:
   before a merge, patch third-party code without losing your changes, keep a markdown
   vault tidy.
 - `writing`: articles and pages with Russian typography.
-- `belarus`: PC parts and builders priced from the Onliner catalogue, VPS choice by
-  measured latency.
 
 Written on one machine over the summer of 2026, so versions and paths inside are examples,
 not requirements.
 
 Install: `/plugin marketplace add Und-ricove/und-ricove-skills`, then
 `/plugin install windows-lab@und-ricove-skills` (one plugin per command; the other plugins
-are `methods`, `writing`, `belarus`). If Claude Code cannot reach GitHub, download the ZIP,
+are `methods` and `writing`). If Claude Code cannot reach GitHub, download the ZIP,
 unpack it and run `/plugin marketplace add C:\path\to\und-ricove-skills`. Single skills can
 also be copied as folders into `%USERPROFILE%\.claude\skills\` without the plugin system.
 The two large `methods` skills keep rules in `SKILL.md` and case notes in `cases.md`.

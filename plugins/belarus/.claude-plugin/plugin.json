@@ -1,8 +1,0 @@
-{
-  "name": "belarus",
-  "description": "Покупки в Беларуси: подбор комплектующих и сборщиков ПК по ценам каталога Onliner, выбор VPS по замеренной задержке, а не по рекламе",
-  "version": "1.1.0",
-  "author": { "name": "und-ricove-skills" },
-  "license": "MIT",
-  "keywords": ["russian", "windows", "claude-code", "skills"]
-}
