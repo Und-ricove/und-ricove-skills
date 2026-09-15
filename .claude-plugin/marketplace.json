@@ -1,12 +1,12 @@
 {
   "name": "und-ricove-skills",
   "owner": { "name": "und-ricove-skills" },
-  "description": "Скиллы одной домашней лаборатории для Claude Code: Windows по-русски, методы проверки, статьи, Беларусь. С любовью, из лаборатории.",
-  "version": "1.0.0",
+  "description": "Готовые скиллы для Claude Code на русском языке: Windows без сломанных кодировок и слепых правок от администратора, проверка чисел и повреждённых данных, статьи для людей, железо и VPS для Беларуси. Установите, и Claude сам применит их к подходящей задаче.",
+  "version": "1.1.0",
   "plugins": [
-    { "name": "windows-lab", "source": "./plugins/windows-lab", "description": "Claude Code на Windows по-русски: UTF-8, права администратора, журналы, железо, GPU, версии Claude, дисплей", "category": "productivity" },
-    { "name": "methods", "source": "./plugins/methods", "description": "Методы: проверка чисел, сортировка повреждённых данных, чужой код, гигиена markdown-хранилища", "category": "productivity" },
-    { "name": "writing", "source": "./plugins/writing", "description": "Статьи и страницы-артефакты с русской типографикой", "category": "writing" },
-    { "name": "belarus", "source": "./plugins/belarus", "description": "Беларусь: железо и сборщики через API Onliner, выбор VPS по задержке", "category": "productivity" }
+    { "name": "windows-lab", "source": "./plugins/windows-lab", "description": "Claude Code на Windows по-русски: проверка, что кириллица не ломается; безопасные правки с правами администратора; ошибки из журналов Windows, здоровье железа и видеокарты, версии Claude, диагностика размытого текста", "category": "productivity" },
+    { "name": "methods", "source": "./plugins/methods", "description": "Меньше ошибок в работе с данными: проверка чисел в отчётах, разбор повреждённых файлов перед переносом, правки чужого кода без потери своих изменений, порядок в папке заметок markdown", "category": "productivity" },
+    { "name": "writing", "source": "./plugins/writing", "description": "Статьи и страницы, которые удобно читать: русская типографика, палитра, структура текста, печать HTML в PDF", "category": "writing" },
+    { "name": "belarus", "source": "./plugins/belarus", "description": "Покупки в Беларуси: подбор комплектующих и сборщиков ПК по ценам каталога Onliner, выбор VPS по замеренной задержке, а не по рекламе", "category": "productivity" }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "name": "writing",
-  "description": "Статьи и страницы-артефакты: русская типографика, палитра, структура подачи",
-  "version": "1.0.0",
+  "description": "Статьи и страницы, которые удобно читать: русская типографика, палитра, структура текста, печать HTML в PDF",
+  "version": "1.0.1",
   "author": { "name": "und-ricove-skills" },
   "license": "MIT",
   "keywords": ["russian", "windows", "claude-code", "skills"]

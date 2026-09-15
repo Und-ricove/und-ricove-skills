@@ -7,36 +7,138 @@
 <img alt="Claude Code plugins" src="https://img.shields.io/badge/Claude_Code-plugins-1a1a1a?style=flat-square&labelColor=000000">
 <img alt="язык русский" src="https://img.shields.io/badge/язык-русский-1a1a1a?style=flat-square&labelColor=000000">
 <img alt="Windows 11" src="https://img.shields.io/badge/Windows-11-1a1a1a?style=flat-square&labelColor=000000">
-<img alt="с любовью, из лаборатории" src="https://img.shields.io/badge/%D1%81_%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C%D1%8E-%D0%B8%D0%B7_%D0%BB%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B8%D0%B8-7F00FF?style=flat-square&labelColor=000000">
+<img alt="с любовью, und-ricove" src="https://img.shields.io/badge/%D1%81_%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C%D1%8E-und--ricove-7F00FF?style=flat-square&labelColor=000000">
 </p>
 
-Скиллы одной домашней лаборатории для Claude Code. Собраны за лето 2026 на живой работе:
-Windows 11 с русским языком, проверки чисел в отчётах, статьи для чтения человеком,
-железо и хостинг для Беларуси. Каждый скилл писался после оплаченной ошибки, поэтому
-в них много «ловушек» и мало теории.
+Готовые инструкции для Claude Code на русском языке: четыре плагина, четырнадцать скиллов.
+Главная тема — работа на Windows 11 с русским языком. Кроме неё: проверка чисел и данных,
+оформление статей и подбор железа для Беларуси.
 
-С любовью, из лаборатории.
+Та же страница на сайте: https://und-ricove.github.io/und-ricove-skills/
+
+## Что такое скилл и зачем он вам
+
+Скилл — это текстовый файл с инструкциями для Claude. Когда ваша задача подходит под
+описание скилла, Claude читает его сам и работает по нему: знает нужные команды, пороги,
+где что лежит и на чём обычно ошибаются. Вам не нужно объяснять одно и то же в каждом
+новом чате и не нужно самому помнить, как правильно.
+
+Плагин — это несколько скиллов, которые ставятся одной командой. Каталог (по-английски
+marketplace) — список плагинов, откуда Claude Code их берёт. Этот репозиторий и есть
+такой каталог.
+
+## Что вы получите
+
+- **Русские буквы перестанут ломаться незаметно.** На Windows кодировка расходится между
+  PowerShell, Git Bash и Python. Скилл проверяет шесть мест одной командой и говорит,
+  где именно проблема, до того как испортится файл.
+- **Правки с правами администратора без ложного «готово».** Из обычной сессии запись
+  в реестр может тихо уйти в копию, и Claude отчитается об успехе, которого не было.
+  Скилл ведёт правку по безопасной схеме: скрипт, окно UAC, файл с результатом, проверка.
+- **Журналы Windows одной командой.** Вместо тысяч строк в «Просмотре событий» — короткая
+  сводка по-русски: что упало, сколько раз, серьёзно или нет.
+- **Числа в отчётах будут проверены, а не переписаны.** Claude умеет уверенно переносить
+  неверное число из одного раздела в другой. Скилл требует пересчитать на месте и
+  посмотреть источник.
+- **Повреждённые файлы не попадут в чистый архив.** Перед переносом или слиянием папок
+  скилл отделяет битое от целого и не выбрасывает рабочие файлы по ложному признаку.
+- **Статьи, которые удобно читать.** Готовые решения по шрифтам, цветам и структуре
+  страницы, чтобы не проектировать оформление заново каждый раз.
+- **Железо и серверы для Беларуси.** Цены из каталога Onliner, проверка совместимости
+  до отправки списка сборщику, выбор VPS по замеренной задержке, а не по рекламе.
+
+Честно о границах. Скиллы собраны на одном компьютере за лето 2026 и хранят его опыт:
+версии, пути и пороги внутри — примеры, а не требования. Перед действием скилл проверяет,
+что стоит у вас. Скиллы с системными правками предупреждают заранее и оставляют путь назад.
+
+## Кому подойдёт
+
+- Вы работаете в Claude Code на Windows и пишете по-русски.
+- Вы хотите, чтобы Claude проверял себя: числа, целостность данных, чужой код.
+- Вы в Беларуси и собираете ПК или выбираете сервер.
+
+Опыт с плагинами не нужен: установка ниже расписана по шагам.
 
 ## Установка
 
-Маркетплейс добавляется одной командой, плагины ставятся по отдельности:
+Понадобится Claude Code: в терминале (команда `claude`) или в приложении Claude Desktop
+на вкладке Code.
 
-```
-/plugin marketplace add Und-ricove/und-ricove-skills
-/plugin install windows-lab@und-ricove-skills
-/plugin install methods@und-ricove-skills
-/plugin install writing@und-ricove-skills
-/plugin install belarus@und-ricove-skills
+1. Откройте чат Claude Code.
+2. Подключите каталог. Введите в чат одну команду:
+
+   ```
+   /plugin marketplace add Und-ricove/und-ricove-skills
+   ```
+
+3. Установите плагины. Одна команда ставит один плагин, поэтому их четыре.
+   Ставьте только нужные:
+
+   ```
+   /plugin install windows-lab@und-ricove-skills
+   /plugin install methods@und-ricove-skills
+   /plugin install writing@und-ricove-skills
+   /plugin install belarus@und-ricove-skills
+   ```
+
+4. Проверьте: наберите в чате `/windows-lab` и появится список скиллов плагина.
+   Или напишите словами «проверь кодировки»: Claude найдёт скилл сам.
+   Если скиллы не появились, перезапустите Claude Code.
+
+### Если у вас нет доступа к GitHub из Claude Code
+
+Поставьте пак из папки на диске.
+
+1. Откройте страницу репозитория в браузере, нажмите зелёную кнопку **Code**
+   и выберите **Download ZIP**.
+2. Распакуйте архив в постоянную папку, например `C:\claude-plugins\und-ricove-skills`.
+   Внутри должны лежать папки `.claude-plugin` и `plugins`.
+3. Укажите Claude Code путь к этой папке:
+
+   ```
+   /plugin marketplace add C:\claude-plugins\und-ricove-skills
+   ```
+
+4. Дальше те же команды `/plugin install`, что в шаге 3 выше.
+
+Если вы переместите папку, повторите шаги 3 и 4 с новым путём.
+
+### Если вы хотите поставить всё сразу
+
+Выполните одну строку в PowerShell (в обычном терминале, не в чате Claude):
+
+```powershell
+claude plugin marketplace add Und-ricove/und-ricove-skills; foreach ($p in 'windows-lab','methods','writing','belarus') { claude plugin install "$p@und-ricove-skills" }
 ```
 
-Без доступа к GitHub из Claude Code: скачай репозиторий (Code → Download ZIP), распакуй и укажи путь к папке:
+### Если команда /plugin не найдена
 
-```
-/plugin marketplace add C:\путь\к\und-ricove-skills
+Ваш Claude Code старше, чем нужно. В терминале выполните `claude update` и перезапустите
+Claude Code. В приложении Claude Desktop обновление приходит вместе с самим приложением.
+
+### Если вы хотите получать обновления пака
+
+В терминале:
+
+```powershell
+claude plugin marketplace update und-ricove-skills
+claude plugin update windows-lab@und-ricove-skills
 ```
 
-Скиллы вызываются как `/windows-lab:encoding-check`, `/methods:number-forensics` и т.д.,
-а также сами по контексту задачи.
+Вторую команду повторите для каждого установленного плагина, затем перезапустите Claude Code.
+
+## Как пользоваться
+
+Есть два способа, оба работают сразу после установки.
+
+- **Назвать скилл явно.** Наберите в чате имя плагина и скилла: `/windows-lab:logs`,
+  `/methods:number-forensics`. У некоторых скиллов есть аргумент: `/windows-lab:logs 48`
+  покажет ошибки за последние 48 часов.
+- **Описать задачу словами.** Напишите «посмотри, что в журналах Windows» или «проверь
+  числа в этом отчёте». Claude сравнит задачу с описаниями скиллов и возьмёт подходящий.
+
+Как понять, что скилл сработал: Claude сообщает, что запускает скилл, и идёт по его шагам.
+Например, при проверке кодировок он выдаст таблицу по шести местам, а не общий совет.
 
 ## Карта пака
 
@@ -50,58 +152,113 @@ und-ricove-skills/
 
 ## Что внутри
 
-### windows-lab — Claude Code на Windows по-русски
+### windows-lab: Claude Code на Windows по-русски
 
-| Скилл | Зачем |
+| Скилл | Что даёт |
 |---|---|
-| `encoding-check` | Смоук-тест UTF-8 во всех трактах: pwsh 7, PowerShell 5.1, Git Bash, Python, файлы, git. Кракозябры и «вопросики» ловятся до того, как испортят файл |
-| `elevated` | Правки, требующие прав администратора, из обычной сессии: скрипт, UAC, файл-результат, проверка из того же канала |
-| `logs` | Свежие ошибки журналов Windows со сводкой по-русски, без простыни |
-| `hw-health` | Маркеры стабильности железа: WHEA, BSOD, TDR, Kernel-Power 41. Что откатить в разгоне |
-| `gpu` | Сводка NVIDIA: температуры, VRAM, клоки, P-state, процессы |
-| `update-check` | Три разных Claude Code на одной машине и где живёт правда о версиях. Скрипт для хука SessionStart в `scripts/` |
-| `display-diag` | Диагностика дисплея и шрифтового тракта: замер «мыла», сглаживание, обратимые переключатели. Скрипты в `scripts/` |
+| `encoding-check` | Проверяет, что русские буквы не ломаются в PowerShell 7, PowerShell 5.1, Git Bash, Python, в файлах и в git. Показывает, где именно проблема, и предлагает точечное исправление |
+| `elevated` | Делает правки, которым нужны права администратора, по безопасной схеме: скрипт на диске, окно UAC, файл с результатом, проверка. Не бывает «сделано», которого не было |
+| `logs` | Собирает свежие ошибки из журналов Windows и выдаёт короткую сводку по-русски. Серьёзное (диск, питание, драйвер видео) ставит первым |
+| `hw-health` | Ищет признаки нестабильного железа: синие экраны, ошибки памяти и процессора (WHEA), вылеты драйвера видеокарты (TDR), внезапные перезагрузки. Подсказывает, что откатить в разгоне |
+| `gpu` | Сводка по видеокарте NVIDIA: температура, занятая память, частоты, кто её грузит |
+| `update-check` | Показывает, какие версии Claude Code и Claude Desktop стоят и какие доступны. Умеет сообщать об этом при старте сессии, скрипт в `scripts/` |
+| `display-diag` | Разбирается с размытым текстом: измеряет резкость по снимку экрана, проверяет сглаживание шрифтов. Все переключатели обратимы, скрипты в `scripts/` |
 
-### methods — способы работать
+### methods: как ошибаться реже
 
-| Скилл | Зачем |
+| Скилл | Что даёт |
 |---|---|
-| `number-forensics` | Проверка чисел в сводках: пересчёт на месте, независимость свидетельств, вес источника, «сниппет не равен карточке» |
-| `data-triage` | Сортировка повреждённых данных: битые против целых, поиск доноров, карантин без потерь. Обязательно перед слиянием папок и баз |
-| `foreign-code` | Форк, патч, сборка чужого кода: правки в исходники против правок в собранное, идемпотентность инструментов правки |
-| `vault-hygiene` | Гигиена markdown-хранилища: метаданные, сироты, безопасные массовые правки, температура файлов как шкала приоритета |
+| `number-forensics` | Проверяет числа в отчётах: пересчёт из исходных данных вместо копирования, независимость источников, вес каждого источника. Ловит ошибки, которые проходят беглое чтение |
+| `data-triage` | Разбирает повреждённые данные перед переносом или слиянием: отделяет битые файлы от целых, ищет исправные копии, откладывает сомнительное в карантин вместо удаления |
+| `foreign-code` | Помогает править чужой код: форк, патч, сборка. Объясняет, почему правки «не применяются», и как не потерять свои изменения при обновлении |
+| `vault-hygiene` | Наводит порядок в папке заметок markdown: метаданные, заметки без ссылок, безопасные массовые правки, шкала важности файлов |
 
-### writing — статьи и страницы
+### writing: статьи и страницы
 
-| Скилл | Зачем |
+| Скилл | Что даёт |
 |---|---|
-| `article-craft` | Статьи и артефакты-страницы: типографика, палитра (`palette.md`), структура подачи, чистота русского языка, печать HTML в PDF |
+| `article-craft` | Готовые решения для статей и страниц: шрифты, цвета (`palette.md`), структура подачи, чистый русский язык, печать HTML в PDF |
 
-### belarus — железо и хостинг
+### belarus: железо и хостинг
 
-| Скилл | Зачем |
+| Скилл | Что даёт |
 |---|---|
-| `pc-build-belarus` | Подбор комплектующих и сборщиков ПК в Беларуси через открытый API каталога Onliner, Kufar и курс НБРБ, чек совместимости |
-| `vps-probe` | Выбор VPS по реальной задержке, а не по рекламе: точки для пинга, помехи VPN |
+| `pc-build-belarus` | Подбирает комплектующие и сборщиков ПК в Беларуси по ценам каталога Onliner и Kufar, считает по курсу НБРБ, проверяет совместимость до отправки списка сборщику |
+| `vps-probe` | Помогает выбрать VPS по реальной задержке до сервера, а не по обещаниям хостера. Учитывает помехи от VPN |
 
-## Как читать скиллы
+## Проверка обновлений Claude при старте сессии
 
-Скиллы написаны на русском и рассчитаны на модель, а не на человека: короткие правила,
-пороги с числами, ловушки с датой, когда они были оплачены. Даты внутри это история
-правок, не срок годности. Пути вида `<папка скилла>` подставь под своё расположение.
+Скилл `update-check` умеет сообщать о новых версиях Claude в начале каждой сессии.
+Для этого нужен хук (по-английски hook): команда, которую Claude Code запускает сам
+при старте. Понадобится PowerShell 7 (команда `pwsh`).
+
+1. Скопируйте файл `plugins/windows-lab/skills/update-check/scripts/update-check.ps1`
+   в постоянную папку, например `%USERPROFILE%\.claude\scripts\update-check.ps1`.
+2. Откройте файл `%USERPROFILE%\.claude\settings.json`. Если файла нет, создайте его
+   с содержимым `{ }`. Добавьте внутрь фигурных скобок раздел:
+
+   ```json
+   "hooks": {
+     "SessionStart": [
+       {
+         "hooks": [
+           {
+             "type": "command",
+             "command": "pwsh -NoProfile -ExecutionPolicy Bypass -File \"$env:USERPROFILE\\.claude\\scripts\\update-check.ps1\"",
+             "shell": "powershell",
+             "timeout": 25
+           }
+         ]
+       }
+     ]
+   }
+   ```
+
+   Если раздел `hooks` уже есть, добавьте в него только `SessionStart`.
+3. Перезапустите Claude Code. Если обновление есть, Claude скажет об этом в первом ответе.
+   Скрипт ничего не устанавливает, только сообщает.
+
+## Нужно ли читать скиллы самому
+
+Нет. Скиллы написаны для Claude: короткие правила, пороги с числами, ловушки с датой,
+когда они были найдены. Даты — история правок, а не срок годности. Читать полезно, если
+хотите понять, почему Claude поступает так, а не иначе, или подправить скилл под себя:
+это обычные текстовые файлы. Запись `<папка скилла>` внутри означает папку самого скилла.
+
+## Если что-то пошло не так
+
+Откройте issue в этом репозитории: напишите, что вы попросили, что ответил Claude и какая
+у вас версия Claude Code (команда `claude --version`). Ошибки в скиллах и предложения
+тоже туда.
 
 ## Лицензия
 
-MIT. Берите, меняйте, делитесь.
+MIT: можно использовать в работе, менять под себя и делиться, сохранив текст лицензии.
+
+С любовью, und-ricove.
 
 ---
 
 ## English
 
-Skills from a single home lab for Claude Code, written in Russian: Windows 11 in a Russian
-locale (UTF-8 everywhere, elevation from a non-admin session, event logs, hardware and GPU
-health, Claude version checks, display diagnostics), working methods (number forensics,
-damaged-data triage, foreign-code patching, markdown-vault hygiene), long-form writing with
-Russian typography, and hardware/VPS sourcing for Belarus. Every skill was written after a
-paid-for mistake, so they are heavy on traps and light on theory. Install the marketplace
-with `/plugin marketplace add Und-ricove/und-ricove-skills`. MIT licensed.
+Ready-made skills for Claude Code, written in Russian. A skill is a text file Claude reads
+on its own when your task matches it, so you stop re-explaining the same things in every
+chat. What you get:
+
+- `windows-lab`: Windows 11 in a Russian locale. Catch broken Cyrillic before it corrupts
+  a file, make admin-level changes without a false "done", read event logs as a short
+  summary, check hardware and GPU health, Claude version checks, blurry-text diagnostics.
+- `methods`: recompute numbers in reports instead of copying them, triage damaged files
+  before a merge, patch third-party code without losing your changes, keep a markdown
+  vault tidy.
+- `writing`: articles and pages with Russian typography.
+- `belarus`: PC parts and builders priced from the Onliner catalogue, VPS choice by
+  measured latency.
+
+Written on one machine over the summer of 2026, so versions and paths inside are examples,
+not requirements.
+
+Install: `/plugin marketplace add Und-ricove/und-ricove-skills`, then
+`/plugin install windows-lab@und-ricove-skills` (one plugin per command; the other plugins
+are `methods`, `writing`, `belarus`). If Claude Code cannot reach GitHub, download the ZIP,
+unpack it and run `/plugin marketplace add C:\path\to\und-ricove-skills`. MIT licensed.
