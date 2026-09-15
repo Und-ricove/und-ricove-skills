@@ -3,10 +3,10 @@
 <p align="center"><img src="assets/banner.svg" width="900" alt="und-ricove-skills: четыре плагина, четырнадцать скиллов"></p>
 
 <p align="center">
-<img alt="лицензия MIT" src="https://img.shields.io/badge/лицензия-MIT-1f3a25?style=flat-square&labelColor=0b0f0c">
-<img alt="Claude Code plugins" src="https://img.shields.io/badge/Claude_Code-plugins-1f3a25?style=flat-square&labelColor=0b0f0c">
-<img alt="язык русский" src="https://img.shields.io/badge/язык-русский-1f3a25?style=flat-square&labelColor=0b0f0c">
-<img alt="Windows 11" src="https://img.shields.io/badge/Windows-11-1f3a25?style=flat-square&labelColor=0b0f0c">
+<img alt="лицензия MIT" src="https://img.shields.io/badge/лицензия-MIT-1a1a1a?style=flat-square&labelColor=000000">
+<img alt="Claude Code plugins" src="https://img.shields.io/badge/Claude_Code-plugins-1a1a1a?style=flat-square&labelColor=000000">
+<img alt="язык русский" src="https://img.shields.io/badge/язык-русский-1a1a1a?style=flat-square&labelColor=000000">
+<img alt="Windows 11" src="https://img.shields.io/badge/Windows-11-1a1a1a?style=flat-square&labelColor=000000">
 </p>
 
 Скиллы одной домашней лаборатории для Claude Code. Собраны за лето 2026 на живой работе:
