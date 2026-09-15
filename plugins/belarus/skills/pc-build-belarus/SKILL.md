@@ -10,7 +10,7 @@ description: Подбор комплектующих, смет и сборщик
 
 ## Источники и их API
 
-- **Onliner, каталог** — подробности эндпоинтов в памяти `onliner-api-belarus`. Кратко: поиск
+- **Onliner, каталог** — открытые JSON-эндпоинты, ключ не нужен. Кратко: поиск
   `catalog.api/search/products?query=` → `products[].key`, позиции магазинов
   `shop.api/products/<key>/positions` → `positions.primary[]` с `shop_id`, `position_price.amount`,
   карточка магазина `shop.api.onliner.by/shops/<id>?include=full` → адрес, телефоны, `work_time` по дням,

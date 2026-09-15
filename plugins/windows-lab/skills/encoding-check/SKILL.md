@@ -18,7 +18,7 @@ description: Смоук-тест UTF-8 всех трактов (pwsh 7, PS 5.1, 
 2. **PowerShell 5.1**: `powershell.exe -NoProfile -Command "[Console]::OutputEncoding.CodePage; 'Тест-Кириллица_★_2026'"` — тоже 65001. `-NoProfile` намеренно: проверяем базовый системный слой, а не заплатку из профиля. Если без профиля ✗, а с профилем (`powershell.exe -Command ...`) ✓ — так и скажи: «UTF-8 держится только на профиле», это жёлтый флаг, не зелёный.
 3. **Git Bash** (инструмент Bash): `echo 'Тест-Кириллица_★_2026'; locale charmap 2>/dev/null || echo нет-locale` — ожидаем UTF-8.
 4. **Python/uv** (из pwsh): `python3.12 -c "import sys; print('Тест-Кириллица_★_2026', sys.stdout.encoding)"` — encoding должен быть utf-8 (PYTHONUTF8=1). Если `python3.12` не найден — uv-шим в `%USERPROFILE%\.local\bin` слетел: запусти fallback `uv run --python 3.12 python -c "..."` и отметь пропажу шима как отдельную находку.
-5. **Файловый круг + BOM**: из pwsh записать эталон в файл в scratchpad (`Set-Content -Encoding utf8`) → прочитать инструментом Read → сравнить. Затем байтовый чек: `[System.IO.File]::ReadAllBytes('<путь>')[0..2]` — если `239 187 191` (EF BB BF), в файле BOM → ✗ (стандарт лаборатории: UTF-8 БЕЗ BOM).
+5. **Файловый круг + BOM**: из pwsh записать эталон в файл в scratchpad (`Set-Content -Encoding utf8`) → прочитать инструментом Read → сравнить. Затем байтовый чек: `[System.IO.File]::ReadAllBytes('<путь>')[0..2]` — если `239 187 191` (EF BB BF), в файле BOM → ✗ (стандарт: UTF-8 БЕЗ BOM).
 6. **git-конфиг**: `git config --global core.quotepath` → `false`; `git config --global i18n.commitencoding` → `utf-8`. Пустой вывод (exit 1) = ключ не задан = ✗, а не «по умолчанию сойдёт».
 
 ## Ловушка инструмента Write (найдена 03.09.2026)

@@ -22,7 +22,7 @@ description: Проверка обновлений Claude Desktop и Claude Code
 (правило: установки только по согласованию с пользователем). Исключение
 не делать даже для «мелкого» патча.
 
-## Три разных Claude Code на этой машине
+## Три разных Claude Code на одной машине
 
 1. **CLI терминала** — `%USERPROFILE%\.local\bin\claude.exe` (native
    installer, канал `latest`). Обновляется командой `claude update`.
