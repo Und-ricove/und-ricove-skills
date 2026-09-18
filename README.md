@@ -188,7 +188,7 @@ und-ricove-skills/
 | `data-triage` | Разбирает повреждённые данные перед переносом или слиянием: отделяет битые файлы от целых, ищет исправные копии, откладывает сомнительное в карантин вместо удаления |
 | `foreign-code` | Помогает править чужой код: форк, патч, сборка. Объясняет, почему правки «не применяются», и как не потерять свои изменения при обновлении |
 | `vault-hygiene` | Наводит порядок в папке заметок markdown: метаданные, битые и якорные ссылки, заметки без ссылок, безопасные массовые правки и переименования. Правила в `SKILL.md`, случаи в `cases.md`. Сканер хранилища в пак не входит, описаны требования к своему |
-| `multisession` | Несколько сессий Claude Code на одной машине без конфликтов: общая доска, где каждая сессия перед делом записывает, чем занята, и снимает запись после (`scripts/board.sh`, нужен Git Bash). Есть необязательная схема «одна сессия раздаёт задания, остальные отчитываются» |
+| `multisession` | Несколько сессий Claude Code на одной машине без конфликтов: общая доска, где каждая сессия перед делом записывает, чем занята, и снимает запись после (`scripts/board.sh`, нужен Git Bash). Есть необязательная схема «одна сессия раздаёт задания, остальные отчитываются» и уроки первого дня работы по ней |
 
 ### writing: статьи и страницы
 
@@ -285,7 +285,7 @@ chat. What you get:
 - `methods`: recompute numbers in reports instead of copying them, triage damaged files
   before a merge, patch third-party code without losing your changes, keep a markdown
   vault tidy, run several Claude Code sessions on one machine without them stepping on
-  each other (a shared claim/done board).
+  each other (a shared claim/done board, with lessons from the first day of the orchestrator scheme).
 - `writing`: articles and pages with Russian typography.
 
 Written on one machine over the summer of 2026, so versions and paths inside are examples,
