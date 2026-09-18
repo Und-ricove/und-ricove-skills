@@ -1,6 +1,6 @@
 # und-ricove-skills
 
-<p align="center"><img src="assets/banner.svg" width="900" alt="und-ricove-skills: три плагина, двенадцать скиллов"></p>
+<p align="center"><img src="assets/banner.svg" width="900" alt="und-ricove-skills: три плагина, тринадцать скиллов, единорог со стразами"></p>
 
 <p align="center">
 <img alt="лицензия MIT" src="https://img.shields.io/badge/лицензия-MIT-1a1a1a?style=flat-square&labelColor=000000">
@@ -10,9 +10,9 @@
 <img alt="с любовью, und-ricove" src="https://img.shields.io/badge/%D1%81_%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C%D1%8E-und--ricove-7F00FF?style=flat-square&labelColor=000000">
 </p>
 
-Готовые инструкции для Claude Code на русском языке: три плагина, двенадцать скиллов.
-Главная тема — работа на Windows 11 с русским языком. Кроме неё: проверка чисел и данных
-и оформление статей.
+Привет! Это набор готовых инструкций для Claude Code на русском языке: три плагина,
+тринадцать скиллов. Главная тема — Windows 11 и русский язык без сюрпризов. Ещё здесь
+проверка чисел и данных, работа в несколько сессий Claude и статьи, которые приятно читать.
 
 Та же страница на сайте: https://und-ricove.github.io/und-ricove-skills/
 
@@ -27,7 +27,7 @@
 marketplace) — список плагинов, откуда Claude Code их берёт. Этот репозиторий и есть
 такой каталог.
 
-## Что вы получите
+## Что вы получите ✨
 
 - **Русские буквы перестанут ломаться незаметно.** На Windows кодировка расходится между
   PowerShell, Git Bash и Python. Скилл проверяет шесть мест одной командой и говорит,
@@ -42,6 +42,9 @@ marketplace) — список плагинов, откуда Claude Code их б
   посмотреть источник.
 - **Повреждённые файлы не попадут в чистый архив.** Перед переносом или слиянием папок
   скилл отделяет битое от целого и не выбрасывает рабочие файлы по ложному признаку.
+- **Две сессии Claude — и ни одной затёртой правки.** Если вы открываете несколько сессий
+  Claude Code сразу, скилл даёт им общую доску: каждая перед делом записывает, чем занята,
+  и они не мешают друг другу.
 - **Статьи, которые удобно читать.** Готовые решения по шрифтам, цветам и структуре
   страницы, чтобы не проектировать оформление заново каждый раз.
 
@@ -55,8 +58,10 @@ marketplace) — список плагинов, откуда Claude Code их б
 
 - Вы работаете в Claude Code на Windows и пишете по-русски.
 - Вы хотите, чтобы Claude проверял себя: числа, целостность данных, чужой код.
+- Вы открываете несколько сессий Claude Code сразу и не хотите, чтобы они мешали друг другу.
 
-Опыт с плагинами не нужен: установка ниже расписана по шагам.
+Опыт с плагинами не нужен: установка ниже расписана по шагам, а если что-то не выйдет —
+напишите, разберёмся.
 
 ## Установка
 
@@ -157,11 +162,11 @@ claude plugin update windows-lab@und-ricove-skills
 ```text
 und-ricove-skills/
 ├── windows-lab/   encoding-check  elevated  logs  hw-health  gpu  update-check  display-diag
-├── methods/       number-forensics  data-triage  foreign-code  vault-hygiene
+├── methods/       number-forensics  data-triage  foreign-code  vault-hygiene  multisession
 └── writing/       article-craft
 ```
 
-## Что внутри
+## Что внутри 🦄
 
 ### windows-lab: Claude Code на Windows по-русски
 
@@ -183,6 +188,7 @@ und-ricove-skills/
 | `data-triage` | Разбирает повреждённые данные перед переносом или слиянием: отделяет битые файлы от целых, ищет исправные копии, откладывает сомнительное в карантин вместо удаления |
 | `foreign-code` | Помогает править чужой код: форк, патч, сборка. Объясняет, почему правки «не применяются», и как не потерять свои изменения при обновлении |
 | `vault-hygiene` | Наводит порядок в папке заметок markdown: метаданные, битые и якорные ссылки, заметки без ссылок, безопасные массовые правки и переименования. Правила в `SKILL.md`, случаи в `cases.md`. Сканер хранилища в пак не входит, описаны требования к своему |
+| `multisession` | Несколько сессий Claude Code на одной машине без конфликтов: общая доска, где каждая сессия перед делом записывает, чем занята, и снимает запись после (`scripts/board.sh`, нужен Git Bash). Есть необязательная схема «одна сессия раздаёт задания, остальные отчитываются» |
 
 ### writing: статьи и страницы
 
@@ -192,8 +198,8 @@ und-ricove-skills/
 
 ## Что делают скрипты в паке
 
-В паке четыре скрипта PowerShell. Все открытые, ничего не устанавливают, и только один
-из них выходит в сеть:
+В паке четыре скрипта PowerShell и один скрипт bash. Все открытые, ничего не устанавливают,
+и только один из них выходит в сеть:
 
 - `update-check.ps1` читает версии Claude Desktop и Claude Code на вашей машине и журнал
   встроенного апдейтера; раз в шесть часов запрашивает у реестра npm номер свежей версии.
@@ -204,6 +210,8 @@ und-ricove-skills/
   его (живое состояние и реестр). Обратимо, перезагрузка не нужна.
 - `font-semibold-apply.ps1` подменяет системный шрифт на Segoe UI Semibold через реестр.
   Требует прав администратора, есть ключ отката.
+- `board.sh` (bash) ведёт доску сессий: пишет строки в файл `%USERPROFILE%\.claude\board.md`
+  и журнал рядом с ним, ставит и снимает замок-каталог. В сеть не ходит.
 
 Перед тем как ставить любой из них в хук или запускать, прочитайте его: это обычный текст.
 
@@ -240,7 +248,9 @@ und-ricove-skills/
 
    Если раздел `hooks` уже есть, добавьте в него только `SessionStart`.
 3. Перезапустите Claude Code. Если обновление есть, Claude скажет об этом в первом ответе.
-   Скрипт ничего не устанавливает, только сообщает.
+   Скрипт ничего не устанавливает, только сообщает. Если хотите, чтобы Claude сам ставил
+   обновления командной строки, разрешите это явно в своём `CLAUDE.md`: как именно —
+   в скилле `update-check`.
 
 ## Нужно ли читать скиллы самому
 
@@ -251,13 +261,13 @@ und-ricove-skills/
 
 ## Если что-то пошло не так
 
-Откройте issue в этом репозитории: напишите, что вы попросили, что ответил Claude и какая
-у вас версия Claude Code (команда `claude --version`). Ошибки в скиллах и предложения
-тоже туда.
+Не стесняйтесь: откройте issue в этом репозитории и напишите, что вы попросили, что ответил
+Claude и какая у вас версия Claude Code (команда `claude --version`). Ошибки в скиллах
+и идеи тоже туда — всё прочитаю.
 
 ## Лицензия
 
-MIT: можно использовать в работе, менять под себя и делиться, сохранив текст лицензии.
+MIT: берите в работу, меняйте под себя и делитесь, только сохраните текст лицензии.
 
 С любовью, und-ricove.
 
@@ -265,7 +275,7 @@ MIT: можно использовать в работе, менять под с
 
 ## English
 
-Ready-made skills for Claude Code, written in Russian. A skill is a text file Claude reads
+Ready-made skills for Claude Code, written in Russian: three plugins, thirteen skills. A skill is a text file Claude reads
 on its own when your task matches it, so you stop re-explaining the same things in every
 chat. What you get:
 
@@ -274,7 +284,8 @@ chat. What you get:
   summary, check hardware and GPU health, Claude version checks, blurry-text diagnostics.
 - `methods`: recompute numbers in reports instead of copying them, triage damaged files
   before a merge, patch third-party code without losing your changes, keep a markdown
-  vault tidy.
+  vault tidy, run several Claude Code sessions on one machine without them stepping on
+  each other (a shared claim/done board).
 - `writing`: articles and pages with Russian typography.
 
 Written on one machine over the summer of 2026, so versions and paths inside are examples,
