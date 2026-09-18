@@ -33,6 +33,8 @@ foreach ($p in $files) { $t = [IO.File]::ReadAllText($p, $enc) -replace "`r`n","
 
 `sed -i 's/\r$//'` из Git Bash в этой песочнице CR **не убирает** (проверено: счётчик CR не изменился). Конвертировать только через .NET.
 
+**Исключение — папка памяти Claude (`~/.claude/projects/<проект>/memory/`, найдено 18.09.2026):** её файлы переписывает сам Claude Code — дописывает в шапку `node_type: memory`, `originSessionId`, `modified` и держит CRLF. Запись LF через .NET откатывается в те же миллисекунды (проверено: сразу после WriteAllText счётчик CR снова 75, размер прежний). Там LF не удержать и не пытаться — формат папки принадлежит инструменту; правило «новые файлы — LF» на неё не распространяется. Все файлы памяти по этой причине CRLF.
+
 Системный слой (reg query):
 - `reg query "HKLM\SYSTEM\CurrentControlSet\Control\Nls\CodePage" /v ACP` → 65001
 - `reg query "HKLM\SYSTEM\CurrentControlSet\Control\Nls\CodePage" /v OEMCP` → 65001 (кодировка консольных приложений — отдельный шов)

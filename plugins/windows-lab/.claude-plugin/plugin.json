@@ -1,7 +1,7 @@
 {
   "name": "windows-lab",
   "description": "Claude Code на Windows по-русски: проверка, что кириллица не ломается; безопасные правки с правами администратора; ошибки из журналов Windows, здоровье железа и видеокарты, версии Claude, диагностика размытого текста",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": { "name": "und-ricove-skills" },
   "license": "MIT",
   "keywords": ["russian", "windows", "claude-code", "skills"]
