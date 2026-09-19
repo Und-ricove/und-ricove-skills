@@ -1,7 +1,7 @@
 {
   "name": "methods",
   "description": "Меньше ошибок в работе с данными: проверка чисел в отчётах, разбор повреждённых файлов перед переносом, правки чужого кода без потери своих изменений, порядок в папке заметок markdown, несколько сессий Claude Code на одной машине без конфликтов",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": { "name": "und-ricove-skills" },
   "license": "MIT",
   "keywords": ["russian", "windows", "claude-code", "skills"]
